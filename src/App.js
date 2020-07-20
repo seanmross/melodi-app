@@ -9,8 +9,14 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     paddingLeft: "0.5rem",
   },
-  mainContent: {
-    padding: "96px 24px 0 24px",
+  wrapper: {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column'
+  },
+  content: {
+    padding: "96px 24px 24px 24px",
+    flex: "1 0 auto",
   },
 }));
 
@@ -18,11 +24,11 @@ const App = () => {
   const classes = useStyles();
 
   return (
-    <div>
+    <div className={classes.wrapper}>
       <AppToolbar />
-      <div className={classes.mainContent}>
-        {Array.from({ length: 50 }, (v, i) => {
-          return <div>{i}</div>;
+      <div className={classes.content}>
+        {Array.from({ length: 20 }, (v, i) => {
+          return <div key={i}>{i+1}</div>;
         })}
       </div>
       <Player />
